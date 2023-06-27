@@ -1,0 +1,14 @@
+
+    body {
+      background-color: #FFFAF0; /* Define a cor de fundo como creme */
+    }
+
+    #audioPlayer {
+      margin: 0 auto; /* Centraliza o player na página */
+      display: block;
+    }
+
+    #volumeRange {
+      width: 200px; /* Define uma largura fixa para o controle de volume */
+    }
+  
