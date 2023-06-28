@@ -3,56 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Web Rádio CatólicaPicos</title>
-<link rel="stylesheet" href="style.css">  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Web Rádio CatólicaPicos</h1>
   <audio id="audioPlayer" controls>
-    <source src="music/music (1).mp3" type="audio/mpeg">
-    <source src="music/music (2).mp3" type="audio/mpeg">
-    <source src="music/music (3).mp3" type="audio/mpeg">
-    <source src="music/music (4).mp3" type="audio/mpeg">
-    <source src="music/music (5).mp3" type="audio/mpeg">
+    <source src="http://localhost:8000/" type="audio/mpeg">
     Seu navegador não suporta a reprodução de áudio.
   </audio>
   <script>
     var audioPlayer = document.getElementById("audioPlayer");
 
-    // Função para avançar para o próximo áudio
-    function avancar() {
-      audioPlayer.pause(); // Pausa a reprodução atual
-      audioPlayer.currentTime = 0; // Reinicia o tempo de reprodução para o início
-
-      var nextSource = audioPlayer.getElementsByTagName('source')[0].nextElementSibling;
-      if (nextSource) {
-        audioPlayer.src = nextSource.src;
-      }
-
-      audioPlayer.play(); // Inicia a reprodução do próximo áudio
+    // Função para reproduzir a transmissão de áudio
+    function playAudio() {
+      audioPlayer.play();
     }
 
-    // Função para retroceder para o áudio anterior
-    function retroceder() {
-      audioPlayer.pause(); // Pausa a reprodução atual
-      audioPlayer.currentTime = 0; // Reinicia o tempo de reprodução para o início
-
-      var previousSource = audioPlayer.getElementsByTagName('source')[0].previousElementSibling;
-      if (previousSource) {
-        audioPlayer.src = previousSource.src;
-      }
-
-      audioPlayer.play(); // Inicia a reprodução do áudio anterior
-    }
-
-    // Função para alterar o volume do áudio
-    function alterarVolume() {
-      audioPlayer.volume = parseFloat(document.getElementById("volumeRange").value);
+    // Função para pausar a transmissão de áudio
+    function pauseAudio() {
+      audioPlayer.pause();
     }
   </script>
-  <button onclick="retroceder()">Retroceder</button>
-  <button onclick="avancar()">Avançar</button>
-  <br>
-  <input type="range" id="volumeRange" min="0" max="1" step="0.1" value="1" onchange="alterarVolume()">
-  <label for="volumeRange">Volume</label>
+  <button onclick="playAudio()">Play</button>
+  <button onclick="pauseAudio()">Pause</button>
 </body>
 </html>
